@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-test-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-test
+  template:
+    metadata:
+      labels:
+        app: node-test
+    spec:
+      containers:
+        - name: node-test
+          image: 062946332322.dkr.ecr.us-west-2.amazonaws.com/node-test:latest
+          ports:
+            - containerPort: 80
